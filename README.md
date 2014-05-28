@@ -1,5 +1,9 @@
 # clj-skroutz
 
+A Clojure client for Skroutz API (v3 and above).
+Please check the [documentation](http://docs.skroutz.gr/apiv3/) for more
+information.
+
 The project uses [Midje](https://github.com/marick/Midje/).
 
 ## How to run the tests
@@ -11,3 +15,7 @@ The project uses [Midje](https://github.com/marick/Midje/).
 `lein midje :autotest` will run all the tests indefinitely. It sets up a
 watcher on the code files. If they change, only the relevant tests will be
 run again.
+
+## License
+
+Distributed under the Eclipse Public License, the same as Clojure.
