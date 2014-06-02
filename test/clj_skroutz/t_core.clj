@@ -2,14 +2,15 @@
   (:use midje.sweet)
   (:use [clj_skroutz.core]))
 
-(facts "about `first-element`"
-  (fact "it normally returns the first element"
-    (first-element [1 2 3] :default) => 1
-    (first-element '(1 2 3) :default) => 1)
+(facts "about `build-request`"
+  (fact ))
 
-  ;; I'm a little unsure how Clojure types map onto the Lisp I'm used to.
-  (fact "default value is returned for empty sequences"
-    (first-element [] :default) => :default
-    (first-element '() :default) => :default
-    (first-element nil :default) => :default
-    (first-element (filter even? [1 3 5]) :default) => :default))
+(facts "about `format-url`"
+  (fact "it formats urls"
+    (format-url "category")
+      => "https://api.skroutz.gr/category"
+    (format-url "categories/%s/children" [42])
+      => "https://api.skroutz.gr/categories/42/children"
+    (format-url "categories/%s/manufacturers/%s" [42 12])
+      => "https://api.skroutz.gr/categories/42/manufacturers/12"
+    ))
