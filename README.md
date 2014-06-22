@@ -6,6 +6,15 @@ information.
 
 The project uses [Midje](https://github.com/marick/Midje/).
 
+## How to get an application token
+
+Once you have `client-id` and `client-secret`
+
+```clojure
+(require 'clj_skroutz.oauth)
+(clj_skroutz.oauth/app-token <your-client-id> <your-client-secret>)
+```
+
 ## How to run the tests
 
 `lein midje` will run all tests.
