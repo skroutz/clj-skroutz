@@ -28,6 +28,7 @@ add `config.edn`. Options for `clj_skroutz` are:
 * :client-id The client id.
 * :client-secret The client secret.
 * :app-token The app token.
+* :auth-prefix The authorization prefix. Default is `"Bearer "`
 
 ## How to get an application token
 

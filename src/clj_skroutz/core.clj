@@ -23,10 +23,11 @@
   "Builds a request to Skroutz API using some sane defaults."
   [method end-point positional
    {:strs [throw_exceptions follow_redirects accept
-           oauth_token user_agent]
+           oauth_token user_agent auth-prefix]
     :or {follow_redirects true, throw_exceptions false,
          accept (carica/config :accept-header),
-         user_agent (carica/config :user-agent)}
+         user_agent (carica/config :user-agent)
+         auth-prefix (carica/config :auth-prefix)}
     :as query}]
   (let [req (merge-with merge
                         {:url (format-url end-point positional)
@@ -36,7 +37,7 @@
                         (when accept
                           {:headers {"Accept" accept}})
                         (when oauth_token
-                          {:headers {"Authorization" (str "Bearer " oauth_token)}})
+                          {:headers {"Authorization" (str auth-prefix oauth_token)}})
                         (when user_agent
                           {:headers {"User-Agent" user_agent}})
                         )]
