@@ -8,4 +8,5 @@
  :client-id "your-client-id-key"
  :client-secret "your-client-secret"
  :app-token "your-app-token"
- :auth-prefix "Bearer "}
+ :auth-prefix "Bearer "
+ :order-dir "asc"}

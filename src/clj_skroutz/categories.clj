@@ -44,3 +44,10 @@
   http://docs.skroutz.gr/apiv3/v3/category/#list-a-categorys-manufacturers"
   [id & options]
   (skroutz/api-call :get "categories/%s/manufacturers" [id] options))
+
+(defn skus
+  "Lists category skus
+
+   http://docs.skroutz.gr/apiv3/v3/sku/#list-skus-of-specific-category"
+   [id & options]
+   (skroutz/api-call :get "categories/%s/skus" [id] options))
