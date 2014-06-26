@@ -1,18 +1,17 @@
 (ns clj_skroutz.core
   (require [clj-http.client :as client])
   (require [cheshire.core :as json])
-  (require [cemerick.url :as url]))
+  (require [cemerick.url :as url])
+  (require [carica.core :as carica]))
 
-(def ^:dynamic url "https://api.skroutz.gr/")
-(def ^:dynamic user-agent "clj-skroutz client")
-(def ^:dynamic accept-header "application/vnd.skroutz+json;version=3")
-(def ^:dynamic defaults {})
+(def ^:dynamic defaults {:oauth_token (carica/config :app-token)})
 
 (defn format-url
   ([end-point]
     (format-url end-point ""))
   ([end-point positional]
-   (str url (apply format end-point positional))))
+    (let [url (carica/config :url)]
+      (str url (apply format end-point positional)))))
 
 (defn update-req
   "Given a clj-http request, and a 'next' url string, merge the next url into the request"
@@ -26,7 +25,8 @@
    {:strs [throw_exceptions follow_redirects accept
            oauth_token user_agent]
     :or {follow_redirects true, throw_exceptions false,
-         accept accept-header, user_agent user-agent}
+         accept (carica/config :accept-header),
+         user_agent (carica/config :user-agent)}
     :as query}]
   (let [req (merge-with merge
                         {:url (format-url end-point positional)
