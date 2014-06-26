@@ -8,3 +8,4 @@ testinfo.clj
 target/
 docs/
 .nrepl-port
+resources/config.edn
