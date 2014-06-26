@@ -1,0 +1,10 @@
+{:token-url "https://www.skroutz.gr/oauth2/token"
+ :scope "public"
+ :grant-type "client_credentials"
+ :redirect-uri "http://www.example.com/callback"
+ :accept-header "application/vnd.skroutz+json;version=3"
+ :user-agent "clj-skroutz client"
+ :url "https://api.skroutz.gr/"
+ :client-id "your-client-id-key"
+ :client-secret "your-client-secret"
+ :app-token "your-app-token"}
