@@ -48,8 +48,15 @@
   [])
 
 (defn extract-useful-meta
-  [req]
-  [])
+   [h]
+  (let [{:strs [etag last-modified x-ratelimit-limit x-ratelimit-remaining
+                x-poll-interval]}
+        h]
+    {:etag etag :last-modified last-modified
+     :call-limit (when x-ratelimit-limit (Long/parseLong x-ratelimit-limit))
+     :call-remaining (when x-ratelimit-remaining (Long/parseLong x-ratelimit-remaining))
+     :poll-interval (when x-poll-interval (Long/parseLong x-poll-interval))}))
+
 
 (defn query-map
   "Merge defaults, turn keywords into strings, and replace hyphens with
