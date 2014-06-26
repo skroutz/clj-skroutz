@@ -38,8 +38,8 @@ Once you have `client-id` and `client-secret` update your `config.edn` file and:
 (clj_skroutz.oauth/app-token)
 ```
 
-You should see a response with an `app-token`. Grab this token and add it to
-`config.edn` too.
+You should see a response with an `access-token`. Grab this token and add it to
+`config.edn` too.  
 
 ## How to run the tests
 
