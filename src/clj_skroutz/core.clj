@@ -4,7 +4,7 @@
   (require [cemerick.url :as url])
   (require [carica.core :as carica]))
 
-(def ^:dynamic defaults {:oauth_token (carica/config :app-token)})
+(def ^:dynamic defaults {"oauth_token" (carica/config :app-token)})
 
 (defn format-url
   ([end-point]
@@ -60,14 +60,10 @@
      :call-remaining (when x-ratelimit-remaining (Long/parseLong x-ratelimit-remaining))
      :poll-interval (when x-poll-interval (Long/parseLong x-poll-interval))}))
 
-
 (defn query-map
-  "Merge defaults, turn keywords into strings, and replace hyphens with
-   underscores."
+  "Merge defaults with entries"
   [entries]
-  (into {}
-        (for [[k v] (concat defaults entries)]
-          [(.replace (name k) "-" "_") v])))
+  (into {} (merge defaults (apply hash-map entries))))
 
 (defn api-response
   "Takes a response and checks for certain status codes. If 204, return nil.
@@ -97,7 +93,7 @@
   ([method end-point] (api-call method end-point nil nil))
   ([method end-point positional] (api-call method end-point positional nil))
   ([method end-point positional query]
-    (let [query (query-map query)
+    (let [query (query-map (flatten (vec query)))
           all-pages? (query "all_pages")
           req (build-request method end-point positional query)
           exec-request-one (fn exec-request-one [req]
