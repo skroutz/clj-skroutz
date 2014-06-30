@@ -4,4 +4,4 @@
 (defn search
   "Searches skroutz"
   [q & options]
-  (skroutz/api-call :get "search?q=%s" [q] options))
+  (skroutz/api-call :get "search" [] ["query_params" {:q q}]))

@@ -23,7 +23,7 @@
   "Builds a request to Skroutz API using some sane defaults."
   [method end-point positional
    {:strs [throw_exceptions follow_redirects accept
-           oauth_token user_agent auth-prefix order_by order_dir]
+           oauth_token user_agent auth-prefix query_params order_by order_dir]
     :or {follow_redirects true, throw_exceptions false,
          accept (carica/config :accept-header),
          user_agent (carica/config :user-agent)
@@ -43,6 +43,8 @@
                           {:headers {"User-Agent" user_agent}})
                         (when order_by
                           {:query-params {"order_by" order_by, "order_dir" order_dir}})
+                        (when query_params
+                          {:query-params query_params})
                         )]
   req))
 
