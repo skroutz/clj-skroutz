@@ -40,7 +40,22 @@ Once you have `client-id` and `client-secret` update your `config.edn` file and:
 ```
 
 You should see a response with an `access-token`. Grab this token and add it to
-`config.edn` too.  
+`config.edn` too. Now you are set to consume Skroutz API v3.
+
+## Examples of Usage
+
+```clojure
+  (require '[clj_skroutz.categories :as skroutz-categories])
+  (skroutz-categories/category 40)
+  (skroutz-categories/root)
+
+  ; Lists skus for category
+  (skroutz-categories/skus 40)
+
+  ; Lists skus for categories with ordering
+  ; Available orderings are `popularity` and `pricevat`
+  (skroutz-categories/skus 40 [:order_by "popularity" :order_dir "desc"])
+```
 
 ## References
 
