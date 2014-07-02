@@ -1,11 +1,6 @@
 (ns clj_skroutz.skus
   (:use [clj_skroutz.core :as skroutz]))
 
-(defn from-category
-  "Lists skus for a specific category"
-  [id & options]
-  (skroutz/api-call :get "categories/%s/skus" [id] options))
-
 (defn sku
   "Gets a single SKU
 
