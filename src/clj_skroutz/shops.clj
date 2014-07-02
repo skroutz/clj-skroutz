@@ -22,13 +22,13 @@
   [id & options]
   (skroutz/api-call :get "shops/%s/locations" [id] options))
 
-(defn shop-location
-  [id location-id & options]
-  (skroutz/api-call :get "shops/%s/locations/%s" [id location-id] options))
-
 (defn search
   "Searches shops
 
   http://docs.skroutz.gr/apiv3/v3/shop/#search-for-shops"
   [q & options]
-  (skroutz/api-call :get "shops/search" [] (conj options [:q q])))
+  (skroutz/api-call :get "shops/search" [] (conj options [:q q])))  (skroutz/api-call :get "shops/search" [] (conj options ["query_params" {:q q}])))
+
+(defn location
+  [id location-id & options]
+  (skroutz/api-call :get "shops/%s/locations/%s" [id location-id] options))
