@@ -7,26 +7,36 @@
   (skroutz/api-call :get "categories/%s/skus" [id] options))
 
 (defn sku
-  "Gets sku"
+  "Gets a single SKU
+
+  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-single-sku"
   [id & options]
   (skroutz/api-call :get "skus/%s" [id] options))
 
 (defn similar
-  "Gets similar skus"
+  "Gets similar SKUs
+
+  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-similar-skus"
   [id & options]
   (skroutz/api-call :get "skus/%s/similar" [id] options))
 
 (defn products
-  "Lists sku's products"
+  "Gets SKU's products
+
+  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-products"
   [id & options]
   (skroutz/api-call :get "skus/%s/products" [id] options))
 
 (defn reviews
-  "Lists sku's reviews"
+  "Gets SKU's reviews
+
+  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-reviews"
   [id & options]
   (skroutz/api-call :get "skus/%s/reviews" [id] options))
 
 (defn specifications
-  "Lists specifications"
+  "Gets SKU's specifications
+
+  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-specifications"
   [id & options]
   (skroutz/api-call :get "skus/%s/specifications" [id] options))
