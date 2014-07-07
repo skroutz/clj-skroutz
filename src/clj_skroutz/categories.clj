@@ -51,3 +51,10 @@
    http://docs.skroutz.gr/apiv3/v3/sku/#list-skus-of-specific-category"
    [id & options]
    (skroutz/api-call :get "categories/%s/skus" [id] options))
+
+(defn filter-groups
+  "Lists filter groups
+
+  http://docs.skroutz.gr/apiv3/v3/filter_groups/#list-filtergroups"
+  [id & options]
+  (skroutz/api-call :get "categories/%s/filter_groups" [id] options))
