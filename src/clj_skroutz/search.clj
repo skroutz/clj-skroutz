@@ -8,3 +8,10 @@
   [q & options]
   (skroutz/api-call :get "search" [] (conj options ["query_params" {:q q}])))
 
+
+(defn autocomplete
+  "Autocompletes from Skroutz
+
+  http://docs.skroutz.gr/apiv3/v3/search/#autocomplete"
+  [q & options]
+  (skroutz/api-call :get "autocomplete" [] (conj options ["query_params" {:q q}])))
