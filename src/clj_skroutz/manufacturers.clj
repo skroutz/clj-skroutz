@@ -1,30 +1,31 @@
 (ns clj_skroutz.manufacturers
-  (:use [clj_skroutz.core :as skroutz]))
+  "Implements manufacturer endpoints"
+  (:use [clj_skroutz.core :refer [api-call]]))
 
-(defn manufacturers
-  "Gets manufacturers
+(defn all
+  "Lists all manufacturers.
 
-  http://docs.skroutz.gr/apiv3/v3/manufacturer/#list-manufacturers"
+   http://docs.skroutz.gr/apiv3/v3/manufacturer/#list-manufacturers"
   [& options]
-  (skroutz/api-call :get "manufacturers" [] options))
+  (api-call :get "manufacturers" [] options))
 
 (defn manufacturer
-  "Gets a single manufacturer
+  "Gets a manufacturer.
 
-  http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-single-manufacturer"
+   http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-single-manufacturer"
   [id & options]
-  (skroutz/api-call :get "manufacturers/%s" [id] options))
+  (api-call :get "manufacturers/%s" [id] options))
 
 (defn categories
-  "Gets manufacturer's categories
+  "Lists manufacturer's categories.
 
-  http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-manufacturers-categories"
+   http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-manufacturers-categories"
   [id & options]
-  (skroutz/api-call :get "manufacturers/%s/categories" [id] options))
+  (api-call :get "manufacturers/%s/categories" [id] options))
 
 (defn skus
-  "Gets manufacturer's SKUs
+  "Lists manufacturer's skus.
 
-  http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-manufacturers-skus"
+   http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-manufacturers-skus"
   [id & options]
-  (skroutz/api-call :get "manufacturers/%s/skus" [id] options))
+  (api-call :get "manufacturers/%s/skus" [id] options))

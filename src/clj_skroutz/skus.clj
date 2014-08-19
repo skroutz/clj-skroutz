@@ -1,37 +1,37 @@
 (ns clj_skroutz.skus
-  (:use [clj_skroutz.core :as skroutz]))
+  (:use [clj_skroutz.core :refer [api-call]]))
 
 (defn sku
-  "Gets a single SKU
+  "Gets a sku.
 
-  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-single-sku"
+   http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-single-sku"
   [id & options]
-  (skroutz/api-call :get "skus/%s" [id] options))
+  (api-call :get "skus/%s" [id] options))
 
 (defn similar
-  "Gets similar SKUs
+  "Lists similar skus.
 
-  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-similar-skus"
+   http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-similar-skus"
   [id & options]
-  (skroutz/api-call :get "skus/%s/similar" [id] options))
+  (api-call :get "skus/%s/similar" [id] options))
 
 (defn products
-  "Gets SKU's products
+  "Lists sku's products.
 
-  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-products"
+   http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-products"
   [id & options]
-  (skroutz/api-call :get "skus/%s/products" [id] options))
+  (api-call :get "skus/%s/products" [id] options))
 
 (defn reviews
-  "Gets SKU's reviews
+  "Lists sku's reviews.
 
   http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-reviews"
   [id & options]
-  (skroutz/api-call :get "skus/%s/reviews" [id] options))
+  (api-call :get "skus/%s/reviews" [id] options))
 
 (defn specifications
-  "Gets SKU's specifications
+  "Lists sku's specifications.
 
-  http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-specifications"
+   http://docs.skroutz.gr/apiv3/v3/sku/#retrieve-a-skus-specifications"
   [id & options]
-  (skroutz/api-call :get "skus/%s/specifications" [id] options))
+  (api-call :get "skus/%s/specifications" [id] options))

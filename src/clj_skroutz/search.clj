@@ -1,17 +1,17 @@
 (ns clj_skroutz.search
-  (:use [clj_skroutz.core :as skroutz]))
+  (:use [clj_skroutz.core :refer [api-call]]))
 
 (defn search
-  "Searches skroutz
+  "Searches Skroutz
 
-  http://docs.skroutz.gr/apiv3/v3/search/#search-1"
+   http://docs.skroutz.gr/apiv3/v3/search/#search-1"
   [q & options]
-  (skroutz/api-call :get "search" [] (conj options ["query_params" {:q q}])))
+  (api-call :get "search" [] (conj options ["query_params" {:q q}])))
 
 
 (defn autocomplete
   "Autocompletes from Skroutz
 
-  http://docs.skroutz.gr/apiv3/v3/search/#autocomplete"
+   http://docs.skroutz.gr/apiv3/v3/search/#autocomplete"
   [q & options]
-  (skroutz/api-call :get "autocomplete" [] (conj options ["query_params" {:q q}])))
+  (api-call :get "autocomplete" [] (conj options ["query_params" {:q q}])))
