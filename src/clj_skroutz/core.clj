@@ -1,16 +1,15 @@
 (ns clj_skroutz.core
   (require [clj-http.client :as client])
   (require [cheshire.core :as json])
-  (require [cemerick.url :as url])
-  (require [carica.core :as carica]))
+  (require [cemerick.url :as url]))
 
-(def ^:dynamic defaults {"oauth_token" (carica/config :app-token)})
+(def ^:dynamic current-profile nil)
 
 (defn format-url
   ([end-point]
     (format-url end-point ""))
   ([end-point positional]
-    (let [url (carica/config :url)]
+    (let [url (:url current-profile)]
       (str url (apply format end-point positional)))))
 
 (defn update-req
@@ -25,10 +24,11 @@
    {:strs [throw_exceptions follow_redirects accept
            oauth_token user_agent auth-prefix query_params order_by order_dir]
     :or {follow_redirects true, throw_exceptions false,
-         accept (carica/config :accept-header),
-         user_agent (carica/config :user-agent)
-         auth-prefix (carica/config :auth-prefix)
-         order_dir (carica/config :order-dir)}
+         accept (:accept-header current-profile),
+         user_agent (:user-agent current-profile)
+         auth-prefix (:auth-prefix current-profile)
+         order_dir (:order-dir current-profile)
+         oauth_token (:app-token current-profile)}
     :as query}]
   (let [req (merge-with merge
                         {:url (format-url end-point positional)
@@ -65,7 +65,7 @@
 (defn query-map
   "Merge defaults with entries"
   [entries]
-  (into {} (merge defaults (apply hash-map entries))))
+  (into {} (apply hash-map entries)))
 
 (defn api-response
   "Takes a response and checks for certain status codes. If 204, return nil.
@@ -107,3 +107,10 @@
                                 (lazy-cat resp (exec-request new-req)))
                               resp)))]
        (exec-request req))))
+
+
+(defmacro with-profile
+  "Execute all queries within the body using the given api profile"
+  [profile & body]
+    `(binding [current-profile ~profile]
+       ~@body))

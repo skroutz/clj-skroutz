@@ -2,20 +2,19 @@
   (require [clj-http.client :as client])
   (require [cheshire.core   :as json])
   (require [clj_skroutz.core])
-  (require [carica.core :as carica])
   (require [ring.util.codec :refer (url-decode)]))
 
 (defn app-token
   "Posts request for application token given client-id and client-secret."
   [& {:keys [client-id client-secret redirect-uri grant-type scope token-url
              accept-header code]
-    :or   {client-id (carica/config :client-id)
-           client-secret (carica/config :client-secret)
-           redirect-uri (carica/config :redirect-uri)
-           grant-type (carica/config :grant-type)
-           scope (carica/config :scope)
-           token-url (carica/config :token-url)
-           accept-header (carica/config :accept-header)}}]
+    :or   {client-id (:client-id clj_skroutz.core/current-profile)
+           client-secret (:client-secret clj_skroutz.core/current-profile)
+           redirect-uri (:redirect-uri clj_skroutz.core/current-profile)
+           grant-type (:grant-type clj_skroutz.core/current-profile)
+           scope (:scope clj_skroutz.core/current-profile)
+           token-url (:token-url clj_skroutz.core/current-profile)
+           accept-header (:accept-header clj_skroutz.core/current-profile)}}]
   (client/post token-url
     {:headers {"ACCEPT" accept-header}
      :form-params {:client_id client-id,
@@ -32,13 +31,13 @@
    http://docs.skroutz.gr/apiv3/guides/authentication/"
   [& {:keys [client-id client-secret redirect-uri grant-type scope token-url
              accept-header code]
-    :or   {client-id (carica/config :client-id)
-           client-secret (carica/config :client-secret)
-           redirect-uri (carica/config :redirect-uri)
-           grant-type (carica/config :grant-type)
-           scope (carica/config :scope)
-           token-url (carica/config :token-url)
-           accept-header (carica/config :accept-header)}}]
+    :or   {client-id (:client-id clj_skroutz.core/current-profile)
+           client-secret (:client-secret clj_skroutz.core/current-profile)
+           redirect-uri (:redirect-uri clj_skroutz.core/current-profile)
+           grant-type (:grant-type clj_skroutz.core/current-profile)
+           scope (:scope clj_skroutz.core/current-profile)
+           token-url (:token-url clj_skroutz.core/current-profile)
+           accept-header (:accept-header clj_skroutz.core/current-profile)}}]
   (client/get "https://www.skroutz.gr/oauth2/authorizations/new"
     {:follow-redirects false,
      :query-params {:client_id client-id,
