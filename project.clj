@@ -4,5 +4,6 @@
                  [clj-http "0.9.2"]
                  [cheshire "5.3.1"]
                  [com.cemerick/url "0.1.1"]
-                 [sonian/carica "1.1.0"]]
+                 [sonian/carica "1.1.0"]
+                 [ring/ring-core "1.3.0"]]
   :profiles {:dev {:dependencies [[midje "1.6.3"]]}})

@@ -2,7 +2,8 @@
   (require [clj-http.client :as client])
   (require [cheshire.core   :as json])
   (require [clj_skroutz.core])
-  (require [carica.core :as carica]))
+  (require [carica.core :as carica])
+  (require [ring.util.codec :refer (url-decode)]))
 
 (defn app-token
   "Posts request for application token given client-id and client-secret."
@@ -49,3 +50,8 @@
   "Gets a user authentication token"
   [code]
   (app-token :code code, :grant-type "authorization_code"))
+
+(defn decode-user-code
+  "Decodes user code as given by the redirect url"
+  [code]
+  (url-decode code))
