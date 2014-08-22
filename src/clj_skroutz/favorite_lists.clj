@@ -15,9 +15,9 @@
   "Creates a new favorite list.
 
    http://developer.skroutz.gr/api/v3/favorites/#create-a-favoritelist"
-   [name & options]
-   (api-call :post "favorite_lists" []
-             (conj options ["query_params" {"favorite_list[name]" name}])))
+  [name & options]
+  (api-call :post "favorite_lists" []
+            (conj options ["query_params" {"favorite_list[name]" name}])))
 
 (defn destroy
   "Destroys a favorite list.
