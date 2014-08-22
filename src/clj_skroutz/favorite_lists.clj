@@ -1,13 +1,13 @@
 (ns clj_skroutz.favorite_lists
   "Implements user favorite lists endpoints.
 
-   http://docs.skroutz.gr/apiv3/v3/favorites/"
+   http://developer.skroutz.gr/api/v3/favorites/"
   (:use [clj_skroutz.core :refer [api-call]]))
 
 (defn all
   "Lists all favorite lists of a user.
 
-   http://docs.skroutz.gr/apiv3/v3/favorites/#list-favorite-lists"
+   http://developer.skroutz.gr/api/v3/favorites/#list-favorite-lists"
    [& options]
    (api-call :get "favorite_lists" [] options))
 

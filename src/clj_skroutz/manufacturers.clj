@@ -5,27 +5,27 @@
 (defn all
   "Lists all manufacturers.
 
-   http://docs.skroutz.gr/apiv3/v3/manufacturer/#list-manufacturers"
+   http://developer.skroutz.gr/api/v3/manufacturer/#list-manufacturers"
   [& options]
   (api-call :get "manufacturers" [] options))
 
 (defn manufacturer
   "Gets a manufacturer.
 
-   http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-single-manufacturer"
+   http://developer.skroutz.gr/api/v3/manufacturer/#retrieve-a-single-manufacturer"
   [id & options]
   (api-call :get "manufacturers/%s" [id] options))
 
 (defn categories
   "Lists manufacturer's categories.
 
-   http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-manufacturers-categories"
+   http://developer.skroutz.gr/api/v3/manufacturer/#retrieve-a-manufacturers-categories"
   [id & options]
   (api-call :get "manufacturers/%s/categories" [id] options))
 
 (defn skus
   "Lists manufacturer's skus.
 
-   http://docs.skroutz.gr/apiv3/v3/manufacturer/#retrieve-a-manufacturers-skus"
+   http://developer.skroutz.gr/api/v3/manufacturer/#retrieve-a-manufacturers-skus"
   [id & options]
   (api-call :get "manufacturers/%s/skus" [id] options))

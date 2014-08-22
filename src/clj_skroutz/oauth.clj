@@ -28,7 +28,7 @@
   "Gets an authorization code for user specific actions. Examples are
    notifications favorites and so on.
 
-   http://docs.skroutz.gr/apiv3/guides/authentication/"
+   http://developer.skroutz.gr/authorization/"
   [& {:keys [client-id client-secret redirect-uri grant-type scope token-url
              accept-header code]
     :or   {client-id (:client-id clj_skroutz.core/current-profile)

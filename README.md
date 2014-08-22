@@ -1,7 +1,7 @@
 # clj-skroutz
 
 A Clojure client for Skroutz API (v3 and above).
-Please check the [documentation](http://docs.skroutz.gr/apiv3/) for more
+Please check the [documentation](http://developer.skroutz.gr/api/v3/) for more
 information.
 
 The project uses [Midje](https://github.com/marick/Midje/).
@@ -59,7 +59,7 @@ You should see a response with an `access-token`. Grab this token and add it to
 
 ## References
 
-[Skroutz API documentation](http://docs.skroutz.gr/apiv3/)
+[Skroutz API documentation](http://developer.skroutz.gr/api/v3/)
 
 ## How to run the tests
 

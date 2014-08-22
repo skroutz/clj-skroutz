@@ -4,6 +4,6 @@
 (defn product
   "Gets a product.
 
-   http://docs.skroutz.gr/apiv3/v3/product/#retrieve-a-single-product"
+   http://developer.skroutz.gr/api/v3/product/#retrieve-a-single-product"
   [id & options]
   (api-call :get "products/%s" [id] options))
