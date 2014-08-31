@@ -24,27 +24,6 @@
                    :scope scope
                    :code code}}))
 
-(defn user-code
-  "Gets an authorization code for user specific actions. Examples are
-   notifications favorites and so on.
-
-   http://developer.skroutz.gr/authorization/"
-  [& {:keys [client-id client-secret redirect-uri grant-type scope token-url
-             accept-header code]
-    :or   {client-id (:client-id clj_skroutz.core/current-profile)
-           client-secret (:client-secret clj_skroutz.core/current-profile)
-           redirect-uri (:redirect-uri clj_skroutz.core/current-profile)
-           grant-type (:grant-type clj_skroutz.core/current-profile)
-           scope (:scope clj_skroutz.core/current-profile)
-           token-url (:token-url clj_skroutz.core/current-profile)
-           accept-header (:accept-header clj_skroutz.core/current-profile)}}]
-  (client/get "https://www.skroutz.gr/oauth2/authorizations/new"
-    {:follow-redirects false,
-     :query-params {:client_id client-id,
-                    :redirect_uri redirect-uri
-                    :scope "public favorites override_users_approval"
-                    :response_type "code"}}))
-
 (defn user-token
   "Gets a user authentication token"
   [code]
