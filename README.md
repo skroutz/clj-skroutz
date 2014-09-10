@@ -102,8 +102,8 @@ Before proceed read documentation [here](http://developer.skroutz.gr/authorizati
   (with-profile my-profile (clj_skroutz.oauth/app-token))  
   ```
 
-You should see a response with an `access-token`. Grab this token and you are
-ready to consume Skroutz API v3.
+  You should see a response with an `access-token`. Grab this token and you are
+  ready to consume Skroutz API v3.
 
 2. __User token:__
 
