@@ -1,4 +1,5 @@
 # clj-skroutz
+[![Dependencies Status](https://versions.deps.co/skroutz/clj-skroutz/status.svg)](https://versions.deps.co/skroutz/clj-skroutz)
 
 A Clojure client for Skroutz API (v3 and above).
 Please check the [documentation](http://developer.skroutz.gr/api/v3/) for more
