@@ -5,12 +5,14 @@ A Clojure client for Skroutz API (v3 and above).
 Please check the [documentation](http://developer.skroutz.gr/api/v3/) for more
 information.
 
-## Install (lein)
+## Installation
 
-In your project add
+lein:
+
 ```clojure
 [clj_skroutz "0.0.1"]
 ````
+[Clojars](https://clojars.org/clj-skroutz)
 
 ## Configurations
 
