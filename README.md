@@ -11,65 +11,41 @@ lein:
 
 ```clojure
 [clj_skroutz "0.0.1"]
-````
+```
 [Clojars](https://clojars.org/clj-skroutz)
 
-## Configurations
+## Configuration options
 
-* __:token-url__
-
-  The url to grab app tokens. Can be `https://www.skroutz.gr/oauth2/token` or
+* __:token-url__ The url to grab app tokens. Can be `https://www.skroutz.gr/oauth2/token` or
   `https://www.alve.com/oauth2/token`.
 
-* __:scope__
-
-  The scope of client access. Check [here](http://developer.skroutz.gr/authorization/permissions/)
+* __:scope__ The scope of client access. Check [here](http://developer.skroutz.gr/authorization/permissions/)
   for details.
 
-* __:grant-type__
+* __:grant-type__ The grant type of oauth access. Can be `client_credentials` or `authorization_code`.
 
-  The grant type of oauth access. Can be `client_credentials` or `authorization_code`.
+* __:redirect-uri__ The redirect uri for callbacks.
 
-* __:redirect-uri__
-
-  The redirect uri for callbacks.
-
-* __:accept-header__
-
-  The accept header. Can be `application/vnd.skroutz+json;version=3` or
+* __:accept-header__ The accept header. Can be `application/vnd.skroutz+json;version=3` or
   `application/vnd.alve+json;version=3`.
 
-* __:user-agent__
+* __:user-agent__ The user agent info.
 
-  The user agent info.
+* __:url__ The url to consume api calls. Can be `https://api.skroutz.gr/` or `https://api.alve.com/`
 
-* __:url__
+* __:client-id__ The client id. See [here](http://developer.skroutz.gr/authorization/) for details.
 
-  The url to consume api calls. Can be `https://api.skroutz.gr/` or `https://api.alve.com/`
+* __:client-secret__ The client secret. See [here](http://developer.skroutz.gr/authorization/) for details.
 
-* __:client-id__
+* __:app-token__ The generated app token.
 
-  The client id. See [here](http://developer.skroutz.gr/authorization/) for details.
+* __:auth-prefix__ The authorization prefix. Must be `"Bearer "`
 
-* __:client-secret__
-
-  The client secret. See [here](http://developer.skroutz.gr/authorization/) for details.
-
-* __:app-token__
-
-  The generated app token.
-
-* __:auth-prefix__
-
-  The authorization prefix. Must be `"Bearer "`
-
-* __:user-code__
-
-  The user code. See [here](http://developer.skroutz.gr/authorization/) for details.
+* __:user-code__The user code. See [here](http://developer.skroutz.gr/authorization/) for details.
 
 ## Profiles
 
-To simplify working with multiple users or flavors (Skroutz, Alve) one can use
+To simplify working with multiple users or flavors (Skroutz, Alve, Scrooge) one can use
 the macro `with-profile`. Each profile should be a hashmap with the appropriate
 configuration options.
 
@@ -102,7 +78,7 @@ Before proceed read documentation [here](http://developer.skroutz.gr/authorizati
     :accept-header "application/vnd.skroutz+json;version=3",
     :client-secret "your-client-secret", :auth-prefix "Bearer "})
 
-  (with-profile my-profile (clj_skroutz.oauth/app-token))  
+  (with-profile my-profile (clj_skroutz.oauth/app-token))
   ```
 
   You should see a response with an `access-token`. Grab this token and you are
