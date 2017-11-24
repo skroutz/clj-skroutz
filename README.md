@@ -41,7 +41,7 @@ lein:
 
 * __:auth-prefix__ The authorization prefix. Must be `"Bearer "`
 
-* __:user-code__The user code. See [here](http://developer.skroutz.gr/authorization/) for details.
+* __:user-code__ The user code. See [here](http://developer.skroutz.gr/authorization/) for details.
 
 ## Profiles
 
